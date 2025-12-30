@@ -4,11 +4,11 @@ const Quiz = require('../models/Quiz');
 const { protect } = require('../middleware/authMiddleware');
 
 // @route   GET /api/quizzes
-// @desc    Get all quizzes (admin only)
-// @access  Private
-router.get('/', protect, async (req, res) => {
+// @desc    Get all quizzes (public list)
+// @access  Public
+router.get('/', async (req, res) => {
   try {
-    const quizzes = await Quiz.find({}).sort({ createdAt: -1 });
+    const quizzes = await Quiz.find({}).sort({ createdAt: -1 }).select('_id title createdAt');
     res.json(quizzes);
   } catch (error) {
     console.error(error);

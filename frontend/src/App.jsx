@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import CreateQuiz from './pages/CreateQuiz';
 import TakeQuiz from './pages/TakeQuiz';
+import Home from './pages/Home';
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -14,6 +15,7 @@ const ProtectedRoute = ({ children }) => {
 function AppRoutes() {
   return (
     <Routes>
+      <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/quiz/:id" element={<TakeQuiz />} />
       <Route
@@ -32,7 +34,6 @@ function AppRoutes() {
           </ProtectedRoute>
         }
       />
-      <Route path="/" element={<Navigate to="/admin" />} />
     </Routes>
   );
 }

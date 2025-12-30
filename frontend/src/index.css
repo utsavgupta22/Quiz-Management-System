@@ -375,6 +375,50 @@ body {
   to { transform: rotate(360deg); }
 }
 
+/* Home Page Header */
+.header.home-header {
+  flex-direction: column;
+  text-align: center;
+  padding: 3rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: var(--border-radius);
+}
+
+.header.home-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.header.home-header p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--surface);
+  border-radius: var(--border-radius);
+  border: 2px dashed var(--surface-light);
+}
+
+.empty-state h2 {
+  margin-bottom: 0.5rem;
+  color: var(--text-muted);
+}
+
+.empty-state p {
+  color: var(--text-muted);
+}
+
+/* Quiz Card Date */
+.quiz-date {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin: 0.75rem 0 1rem;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .container { padding: 1rem; }
