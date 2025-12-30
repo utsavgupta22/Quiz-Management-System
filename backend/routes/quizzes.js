@@ -69,6 +69,34 @@ router.post('/', protect, async (req, res) => {
   }
 });
 
+// @route   PUT /api/quizzes/:id
+// @desc    Update a quiz
+// @access  Private
+router.put('/:id', protect, async (req, res) => {
+  try {
+    const { title, questions } = req.body;
+
+    if (!title || !questions || questions.length === 0) {
+      return res.status(400).json({ message: 'Please provide title and at least one question' });
+    }
+
+    const quiz = await Quiz.findById(req.params.id);
+    
+    if (!quiz) {
+      return res.status(404).json({ message: 'Quiz not found' });
+    }
+
+    quiz.title = title;
+    quiz.questions = questions;
+
+    const updatedQuiz = await quiz.save();
+    res.json(updatedQuiz);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 // @route   DELETE /api/quizzes/:id
 // @desc    Delete a quiz
 // @access  Private

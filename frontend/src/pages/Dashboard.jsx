@@ -115,6 +115,12 @@ function Dashboard() {
                 >
                   📋 Copy Link
                 </button>
+                <Link 
+                  to={`/admin/edit/${quiz._id}`}
+                  className="btn btn-primary"
+                >
+                  ✏️ Edit
+                </Link>
                 <button 
                   className="btn btn-danger"
                   onClick={() => handleDelete(quiz._id)}

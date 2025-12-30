@@ -3,6 +3,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import CreateQuiz from './pages/CreateQuiz';
+import EditQuiz from './pages/EditQuiz';
 import TakeQuiz from './pages/TakeQuiz';
 import Home from './pages/Home';
 
@@ -31,6 +32,20 @@ function AppRoutes() {
         element={
           <ProtectedRoute>
             <CreateQuiz />
+          </ProtectedRoute>
+        }
+      />      <Route
+        path="/admin/edit/:id"
+        element={
+          <ProtectedRoute>
+            <EditQuiz />
+          </ProtectedRoute>
+        }
+      />      <Route
+        path="/admin/edit/:id"
+        element={
+          <ProtectedRoute>
+            <EditQuiz />
           </ProtectedRoute>
         }
       />
