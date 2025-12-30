@@ -11,13 +11,12 @@ connectDB();
 
 const app = express();
 
-// Middleware
-app.use(cors({
-  origin: ['https://quiz-management-system-gamma.vercel.app', 'http://localhost:5173'],
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+// CORS - Allow all origins for now (can restrict later)
+app.use(cors());
+
+// Handle preflight requests
+app.options('*', cors());
+
 app.use(express.json());
 
 // Routes
