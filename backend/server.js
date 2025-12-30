@@ -11,12 +11,8 @@ connectDB();
 
 const app = express();
 
-// CORS - Allow all origins for now (can restrict later)
+// CORS - Allow all origins
 app.use(cors());
-
-// Handle preflight requests
-app.options('*', cors());
-
 app.use(express.json());
 
 // Routes
